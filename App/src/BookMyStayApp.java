@@ -1,5 +1,6 @@
-// UC2: Basic Room Types & Static Availability
+import java.util.HashMap;
 
+// ===== Room Abstract Class (UC2) =====
 abstract class Room {
     String roomType;
     int beds;
@@ -18,6 +19,7 @@ abstract class Room {
     }
 }
 
+// ===== Room Types =====
 class SingleRoom extends Room {
     SingleRoom() {
         super("Single Room", 1, 100);
@@ -36,6 +38,38 @@ class SuiteRoom extends Room {
     }
 }
 
+// ===== UC3 Inventory Class =====
+class RoomInventory {
+
+    private HashMap<String, Integer> inventory;
+
+    RoomInventory() {
+        inventory = new HashMap<>();
+
+        // Initial room availability
+        inventory.put("Single Room", 5);
+        inventory.put("Double Room", 3);
+        inventory.put("Suite Room", 2);
+    }
+
+    int getAvailability(String roomType) {
+        return inventory.getOrDefault(roomType, 0);
+    }
+
+    void updateAvailability(String roomType, int count) {
+        inventory.put(roomType, count);
+    }
+
+    void displayInventory() {
+        System.out.println("\nCurrent Room Inventory");
+
+        for (String room : inventory.keySet()) {
+            System.out.println(room + " Available : " + inventory.get(room));
+        }
+    }
+}
+
+// ===== Main Application =====
 public class BookMyStayApp {
 
     public static void main(String[] args) {
@@ -45,34 +79,29 @@ public class BookMyStayApp {
         System.out.println("UC1: Application Entry & Welcome Message");
         System.out.println("Welcome to the Hotel Booking Management System!");
         System.out.println("Version 1.0");
-        System.out.println("-------------------------------------");
+        System.out.println("-----------------------------------");
 
         // ===== UC2 =====
-        System.out.println("UC2: Basic Room Types & Static Availability");
-        System.out.println("Version 2.0");
-        System.out.println("-------------------------------------");
-
-        // Create Room Objects
+        System.out.println("UC2: Basic Room Types");
         Room single = new SingleRoom();
         Room doubleRoom = new DoubleRoom();
         Room suite = new SuiteRoom();
 
-        // Static availability variables
-        int singleAvailable = 5;
-        int doubleAvailable = 3;
-        int suiteAvailable = 2;
-
-        System.out.println("\nRoom Details\n");
-
         single.displayRoomDetails();
-        System.out.println("Available : " + singleAvailable);
         System.out.println();
 
         doubleRoom.displayRoomDetails();
-        System.out.println("Available : " + doubleAvailable);
         System.out.println();
 
         suite.displayRoomDetails();
-        System.out.println("Available : " + suiteAvailable);
+
+        // ===== UC3 =====
+        System.out.println("\nUC3: Centralized Room Inventory Management");
+        System.out.println("Version 3.0");
+        System.out.println("-----------------------------------");
+
+        RoomInventory inventory = new RoomInventory();
+
+        inventory.displayInventory();
     }
 }

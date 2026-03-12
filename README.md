@@ -30,3 +30,17 @@ Flow:
 
 Concepts Used:
 Abstract Class, Inheritance, Polymorphism, Encapsulation, Static Variables
+
+## UC3 : Centralized Room Inventory Management
+
+Goal:
+Replace scattered availability variables with a centralized inventory system using HashMap.
+
+Flow:
+- Initialize inventory system
+- Store room availability using HashMap
+- Retrieve availability through controlled methods
+- Display inventory state
+
+Concepts Used:
+HashMap, Encapsulation, Separation of Concerns, Inventory Management
