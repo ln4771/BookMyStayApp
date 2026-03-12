@@ -44,3 +44,18 @@ Flow:
 
 Concepts Used:
 HashMap, Encapsulation, Separation of Concerns, Inventory Management
+
+## UC4 : Room Search & Availability Check
+
+Goal:
+Allow guests to view available rooms without modifying system state.
+
+Flow:
+- Guest initiates room search
+- System retrieves availability from inventory
+- Room details are fetched from room objects
+- Rooms with zero availability are filtered out
+- Available room types and details are displayed
+
+Concepts Used:
+Read-only access, Defensive programming, Separation of concerns, Validation logic
