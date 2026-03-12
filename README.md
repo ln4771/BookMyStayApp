@@ -16,3 +16,17 @@ Flow:
 
 Concepts Used:
 Main Method, Console Output, Basic Java Program Structure
+
+## UC2 : Basic Room Types & Static Availability
+
+Goal:
+Introduce object modeling through inheritance and abstraction before introducing data structures.
+
+Flow:
+- Start the application
+- Create room objects for different room types
+- Store availability using simple variables
+- Display room details and availability
+
+Concepts Used:
+Abstract Class, Inheritance, Polymorphism, Encapsulation, Static Variables
